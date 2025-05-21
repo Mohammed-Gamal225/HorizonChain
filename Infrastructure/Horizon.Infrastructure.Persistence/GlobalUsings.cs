@@ -1,0 +1,9 @@
+﻿global using Horizon.Domain.Contracts.Repositories;
+global using Horizon.Domain.Contracts.Specifications;
+global using Horizon.Domain.Contracts.UnitOfWork;
+global using Horizon.Domain.Entities;
+global using Horizon.Infrastructure.Persistence.Context;
+global using Horizon.Infrastructure.Persistence.Repositories;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.EntityFrameworkCore.Storage;

@@ -1,0 +1,6 @@
+@HorizonChain.Web_HostAddress = http://localhost:5110
+
+GET {{HorizonChain.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

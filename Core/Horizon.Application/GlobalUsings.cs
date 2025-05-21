@@ -1,0 +1,17 @@
+﻿global using Horizon.Application.Abstractions.Common;
+global using Horizon.Application.Abstractions.DataTransferObjects.ERP;
+global using Horizon.Application.Abstractions.Integrations;
+global using Horizon.Application.Abstractions.Services;
+global using Horizon.Application.Configuration;
+global using Horizon.Application.Integrations;
+global using Horizon.Domain.Contracts.UnitOfWork;
+global using Horizon.Domain.Entities;
+global using Horizon.Domain.Specifications.JobOrders;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Options;
+global using Newtonsoft.Json;
+global using System.Net.Http.Headers;
+global using System.Text;
+global using System.Text.RegularExpressions;
