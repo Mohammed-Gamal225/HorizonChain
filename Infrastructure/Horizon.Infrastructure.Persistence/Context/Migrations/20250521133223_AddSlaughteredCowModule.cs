@@ -6,11 +6,19 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Horizon.Infrastructure.Persistence.Context.Migrations
 {
     /// <inheritdoc />
-    public partial class SlaughteredCowAndItsQuarters : Migration
+    public partial class AddSlaughteredCowModule : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<string>(
+                name: "OrderCode",
+                table: "JobOrderCows",
+                type: "nvarchar(50)",
+                maxLength: 50,
+                nullable: false,
+                defaultValue: "");
+
             migrationBuilder.CreateTable(
                 name: "SlaughteredCow",
                 columns: table => new
@@ -20,7 +28,8 @@ namespace Horizon.Infrastructure.Persistence.Context.Migrations
                     SlaughteredAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     JobOrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    OrderCode = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    OrderCode = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Weight = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,7 +45,8 @@ namespace Horizon.Infrastructure.Persistence.Context.Migrations
                     QuarterType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Weight = table.Column<double>(type: "float", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SlaughteredCowId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    SlaughteredCowId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CowIdentifier = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,6 +73,10 @@ namespace Horizon.Infrastructure.Persistence.Context.Migrations
 
             migrationBuilder.DropTable(
                 name: "SlaughteredCow");
+
+            migrationBuilder.DropColumn(
+                name: "OrderCode",
+                table: "JobOrderCows");
         }
     }
 }

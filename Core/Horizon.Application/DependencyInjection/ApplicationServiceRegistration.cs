@@ -14,7 +14,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<IErpApiClient, ErpApiClient>();
         services.AddScoped<IJobOrderSyncService, JobOrderSyncService>();
         services.AddScoped<IJobOrderService, JobOrderService>();
-
+        services.AddScoped<ICowSlaughterService, CowSlaughterService>();
         services.AddMapsterConfig();
         return services;
     }

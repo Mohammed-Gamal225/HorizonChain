@@ -72,7 +72,8 @@ public class JobOrderSyncService(
                     JobId = jobOrder.Id,
                     Type = line.ItemName,
                     TypeId = line.ItemId,
-                    Weight = line.Weight
+                    Weight = line.Weight,
+                    OrderCode = header.WorkOrder
                 });
             }
             jobOrder.OrderType = jobOrder.Cows.FirstOrDefault()!.Type;

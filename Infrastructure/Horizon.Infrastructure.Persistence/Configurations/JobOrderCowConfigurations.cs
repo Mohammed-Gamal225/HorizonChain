@@ -16,6 +16,10 @@ internal class JobOrderCowConfigurations : IEntityTypeConfiguration<JobOrderCow>
                .IsRequired()
                .HasMaxLength(50);
 
+        builder.Property(jc => jc.OrderCode)
+               .IsRequired()
+               .HasMaxLength(50);
+
         builder.Property(jc => jc.TypeId)
                .IsRequired()
                .HasMaxLength(50);

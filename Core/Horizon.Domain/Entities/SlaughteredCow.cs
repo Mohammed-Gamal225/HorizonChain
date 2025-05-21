@@ -5,9 +5,9 @@ public class SlaughteredCow
     public string CowIdentifier { get; set; } = default!;
     public DateTime SlaughteredAt { get; set; }
     public string Type { get; set; } = default!;
-
-    public Guid JobOrderId { get; set; }
-    public string OrderCode { get; set; }
-
+    public bool IsUnplanned { get; set; } = true;
+    public Guid? JobOrderId { get; set; }
+    public string OrderCode { get; set; } = null!;
+    public double Weight { get; set; }
     public ICollection<CowQuarter> Quarters { get; set; } = [];
 }

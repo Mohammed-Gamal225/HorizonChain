@@ -26,4 +26,32 @@ internal static class MapsterConfig
             .Map(d => d.Code, src => src.CowIdentifier)
             .Map(d => d.Weight, src => src.Weight);
     }
+
+
+
+    public static void RegisterCowMappings()
+    {
+        // ✅ Unplanned Cow
+        TypeAdapterConfig<UnplannedCowRequest, SlaughteredCow>
+            .NewConfig()
+            .Map(dest => dest.Id, _ => Guid.NewGuid())
+            .Map(dest => dest.SlaughteredAt, _ => DateTime.UtcNow)
+            .Map(dest => dest.JobOrderId, _ => (Guid?)null)
+            .Map(dest => dest.OrderCode, _ => (string?)null)
+            .Map(dest => dest.IsUnplanned, _ => true)
+            .Map(dest => dest.Quarters, _ => new List<CowQuarter>());
+
+        // ✅ Planned Cow (from JobOrderCow)
+        TypeAdapterConfig<JobOrderCow, SlaughteredCow>
+            .NewConfig()
+            .Map(dest => dest.Id, _ => Guid.NewGuid())
+            .Map(dest => dest.SlaughteredAt, _ => DateTime.UtcNow)
+            .Map(dest => dest.CowIdentifier, src => src.CowIdentifier)
+            .Map(dest => dest.Type, src => src.Type)
+            .Map(dest => dest.Weight, src => src.Weight)
+            .Map(dest => dest.OrderCode, src => src.OrderCode)
+            .Map(dest => dest.JobOrderId, src => src.JobId)
+            .Map(dest => dest.Quarters, _ => new List<CowQuarter>())
+            .Map(dest => dest.IsUnplanned, _ => false);
+    }
 }

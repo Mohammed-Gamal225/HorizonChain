@@ -1,12 +1,10 @@
-﻿using Horizon.Infrastructure.Persistence.Repositories;
-
-namespace Horizon.Infrastructure.Persistence.Services;
+﻿namespace Horizon.Infrastructure.Persistence.Services;
 internal class UnitOfWork(HorizonDbContext context)
         : IUnitOfWork
 {
     private readonly HorizonDbContext _context = context;
     private readonly Dictionary<string, object> _repositories = [];
-    private IDbContextTransaction _transaction;
+    private IDbContextTransaction _transaction = null!;
 
     public IRepository<T> GetRepository<T>() where T : class
     {

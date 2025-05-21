@@ -4,13 +4,13 @@ namespace Horizon.Domain.Contracts.Specifications;
 public abstract class BaseSpecifications<T>(Expression<Func<T, bool>>? criteria) : ISpecification<T>
     where T : class
 {
-    public Expression<Func<T, bool>> Criteria { get; protected set; } = criteria;
+    public Expression<Func<T, bool>> Criteria { get; protected set; } = criteria!;
 
     public List<Expression<Func<T, object>>> Includes { get; } = [];
     public List<string> IncludeStrings { get; } = [];
 
-    public Expression<Func<T, object>> OrderBy { get; private set; }
-    public Expression<Func<T, object>> OrderByDescending { get; private set; }
+    public Expression<Func<T, object>> OrderBy { get; private set; } = null!;
+    public Expression<Func<T, object>> OrderByDescending { get; private set; } = null!;
 
     public int Take { get; private set; }
     public int Skip { get; private set; }

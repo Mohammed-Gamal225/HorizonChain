@@ -9,5 +9,6 @@ public class JobOrderCow
     public string Type { get; set; } = default!;
     public string TypeId { get; set; } = default!;
     public double Weight { get; set; }
+    public string OrderCode { get; set; } = default!;
 
 }

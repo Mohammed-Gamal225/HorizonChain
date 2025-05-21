@@ -19,7 +19,7 @@ builder.Services.AddCustomSwagger();
 builder.Services.AddApplicationServices(builder.Configuration)
     .AddPersistence(builder.Configuration);
 builder.Services.AddHangfireWithJobs(builder.Configuration);
-builder.Services.AddSingleton<ISlaughterSessionStore, SlaughterSessionStore>();
+builder.Services.AddSingleton<ICowSlaughterQueue, CowSlaughterQueue>();
 
 var app = builder.Build();
 app.UseCustomExceptionHandlingMiddleware();

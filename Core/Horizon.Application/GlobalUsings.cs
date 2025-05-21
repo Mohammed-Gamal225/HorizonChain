@@ -1,12 +1,17 @@
 ﻿global using Horizon.Application.Abstractions.Common;
+global using Horizon.Application.Abstractions.Common.Models;
 global using Horizon.Application.Abstractions.DataTransferObjects.ERP;
+global using Horizon.Application.Abstractions.DataTransferObjects.Slaughter;
 global using Horizon.Application.Abstractions.Integrations;
 global using Horizon.Application.Abstractions.Services;
 global using Horizon.Application.Configuration;
 global using Horizon.Application.Integrations;
 global using Horizon.Domain.Contracts.UnitOfWork;
 global using Horizon.Domain.Entities;
+global using Horizon.Domain.Enums;
 global using Horizon.Domain.Specifications.JobOrders;
+global using Horizon.Domain.Specifications.Slaughter;
+global using Mapster;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;

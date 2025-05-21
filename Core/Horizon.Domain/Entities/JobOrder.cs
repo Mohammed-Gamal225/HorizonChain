@@ -1,10 +1,13 @@
-﻿namespace Horizon.Domain.Entities;
+﻿using Horizon.Domain.Enums;
+
+namespace Horizon.Domain.Entities;
 public class JobOrder
 {
     public Guid Id { get; set; }
     public string OrderCode { get; set; } = default!;
     public DateTime OrderDate { get; set; }
     public int NumberOfCows { get; set; }
+    public JobOrderStatus Status { get; set; } = JobOrderStatus.Planned;
     public string ClientName { get; set; } = default!;
     public string ClientCode { get; set; } = default!;
     public DateTime CreatedAt { get; set; } = DateTime.Now;

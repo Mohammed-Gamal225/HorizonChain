@@ -12,6 +12,11 @@ internal class SlaughteredCowConfiguration : IEntityTypeConfiguration<Slaughtere
         builder.HasMany(x => x.Quarters)
                .WithOne(q => q.SlaughteredCow)
                .HasForeignKey(q => q.SlaughteredCowId);
+
+        builder.Property(c => c.IsUnplanned)
+               .IsRequired()
+               .HasDefaultValue(true);
+
     }
 }
 

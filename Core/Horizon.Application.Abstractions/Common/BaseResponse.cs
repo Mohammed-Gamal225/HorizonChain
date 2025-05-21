@@ -16,6 +16,16 @@ public class BaseResponse<T>
             Code = result.IsSuccess ? 200 : MapErrorCodeToStatusCode(result.Code)
         };
     }
+    public static BaseResponse<object> FromResult(Result result)
+    {
+        return new BaseResponse<object>
+        {
+            Success = result.IsSuccess,
+            Data = null,
+            Error = result.Error,
+            Code = result.IsSuccess ? 200 : MapErrorCodeToStatusCode(result.Code)
+        };
+    }
 
     private static int MapErrorCodeToStatusCode(ErrorCode errorCode)
     {

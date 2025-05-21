@@ -9,6 +9,9 @@ internal class CowQuarterConfiguration : IEntityTypeConfiguration<CowQuarter>
         builder.Property(q => q.Sequence).IsRequired();
         builder.Property(q => q.Weight).IsRequired();
         builder.Property(q => q.CreatedAt).IsRequired();
+        builder.Property(q => q.CowIdentifier)
+            .HasMaxLength(50)
+               .IsRequired();
 
         builder.Property(q => q.QuarterType)
                .HasConversion<string>()

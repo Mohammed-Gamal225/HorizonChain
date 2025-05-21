@@ -13,5 +13,7 @@ public class CowQuarter
 
     public Guid SlaughteredCowId { get; set; }
     public SlaughteredCow SlaughteredCow { get; set; } = null!;
+
+    public string CowIdentifier { get; set; } = default!;
 }
 
